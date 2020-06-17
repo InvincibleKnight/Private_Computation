@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package grpcserver;
+
+service gRPCServer {
+    rpc Square (stream Num) returns (stream Num) {;}
+
+    rpc RandomNumbers (Numbers) returns (google.protobuf.Empty) {;}
+}
+
+message Num{
+    sint32 val =  1;
+}
+
+message Numbers{
+    repeated sint32 arr = 1;
+}
